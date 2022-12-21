@@ -81,8 +81,6 @@ class SinglyLinkedList {
         cur.next = null;
         return oldTail;
 
-
-
         // Write your hypothesis on the time complexity of this method here
     }
 
@@ -90,6 +88,11 @@ class SinglyLinkedList {
         // Return the value of head node
 
         // Your code here
+        if (!this.head) {
+            return undefined;
+        } else {
+            return this.head.value;
+        }
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -98,7 +101,14 @@ class SinglyLinkedList {
         // Print out the linked list
 
         // Your code here
-
+        let cur = this.head;
+        while (cur) {
+            //process.stdout.write(`${current.value} -> `);
+            console.log(cur.value);
+            cur = cur.next;
+        }
+        //process.stdout.write('NULL');
+        //console.log(" ")
         // Write your hypothesis on the time complexity of this method here
     }
 }
