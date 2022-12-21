@@ -53,16 +53,13 @@ class DoublyLinkedList {
 
     removeFromHead() {
         // Remove node at head
-        let oldHeadVal;
         // Your code here
-        if (!this.head) {
-            return undefined;
-        } else if (!this.head.next) {
-            oldHeadVal = this.head.value;
+        if (!this.head) return undefined;
+        let oldHeadVal = this.head.value;
+        if (!this.head.next) {
             this.head = null;
             this.tail = null;
         } else {
-            oldHeadVal = this.head.value;
             this.head = this.head.next;
             this.head.prev = null;
         }
