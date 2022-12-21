@@ -15,7 +15,7 @@ class SinglyLinkedList {
     addToHead(val) {
         // Add node of val to head of linked list
         const newNode = new SinglyLinkedNode(val);
-        if(!this.head){
+        if (!this.head) {
             this.head = newNode;
         } else {
             newNode.next = this.head;
@@ -32,20 +32,19 @@ class SinglyLinkedList {
         // There are bugs in this method! Fix them!!!
 
         // Add node of val to tail of linked list
-        let newNode = new SinglyLinkedNode(data);
+        let newNode = new SinglyLinkedNode(val);
 
-        if (!head) {
-            head = newNode;
-            return head;
+        if (!this.head) {
+            this.head = newNode;
+        } else {
+            let curr = this.head;
+            while (curr.next) {
+                curr = curr.next;
+            }
+            curr.next = newNode;
         }
-
-        let curr = head;
-        while (curr) {
-            curr = current.next;
-        }
-        curr.next = newNode;
-
-        return head;
+        this.length++;
+        return this;
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -54,6 +53,12 @@ class SinglyLinkedList {
         // Remove node at head
 
         // Your code here
+        if (!this.head) return undefined;
+        let cur = this.head;
+        this.head = this.head.next;
+        this.length--;
+        return cur;
+
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -62,6 +67,21 @@ class SinglyLinkedList {
         // Remove node at tail
 
         // Your code here
+        if (!this.head) return undefined;
+        this.length--;
+        let cur = this.head;
+        if (!cur.next) {
+            this.head = null;
+            return cur;
+        }
+        while (cur.next.next) {
+            cur = cur.next;
+        }
+        let oldTail = cur.next;
+        cur.next = null;
+        return oldTail;
+
+
 
         // Write your hypothesis on the time complexity of this method here
     }
