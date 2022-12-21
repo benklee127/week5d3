@@ -14,7 +14,15 @@ class SinglyLinkedList {
 
     addToHead(val) {
         // Add node of val to head of linked list
-
+        const newNode = new SinglyLinkedNode(val);
+        if(!this.head){
+            this.head = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.length += 1;
+        return this;
         // Your code here
 
         // Write your hypothesis on the time complexity of this method here
